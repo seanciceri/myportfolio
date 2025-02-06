@@ -1,0 +1,176 @@
+/* Importa font personalizzati */
+@font-face {
+    font-family: 'ChainsmokersFont';
+    src: url('fonts/HelveticaNeue.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'SFSGFont';
+    src: url('fonts/IntegralCF-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'PixelFont';
+    src: url('fonts/Product Sans Regular.ttf') format('truetype');
+}
+
+/* Imposta lo sfondo verde per l'intera pagina */
+body {
+    background-color: #fdf9ec;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar - Trasparente con margini sistemati */
+.navbar {
+    background-color: transparent !important;
+    box-shadow: none;
+    padding: 20px 20px; /* Spazio interno uniforme */
+}
+
+/* Contenitore Logo + Nome */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Rimuove effetti di link */
+    pointer-events: none; /* Rende non cliccabile l'intera area del logo e nome */
+}
+
+
+
+/* Logo della navbar */
+.navbar .logo {
+    border-radius: 30px;
+    height: 45px; /* Altezza migliorata */
+    margin-right: 10px; /* Distanza dal nome */
+}
+
+/* Nome "Sean" accanto al logo */
+.navbar-name {
+    font-family: 'PixelFont', sans-serif;
+    font-size: 22px;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Pulsanti della navbar */
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    gap: 15px; /* Distanza uniforme tra pulsanti */
+}
+
+/* Stile dei link */
+.navbar-nav .nav-link {
+    text-decoration: none;
+    font-family: 'PixelFont', sans-serif;
+    font-size: 16px;
+    color: #12193b;
+    text-transform: uppercase;
+    padding: 10px 25px;
+    border-radius: 30px;
+    background-color: #f9ebc5;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover sui link */
+.navbar-nav .nav-link:hover {
+    background-color: #fcaed3;
+    color: #12193b;
+}
+
+/* Navbar al centro */
+.center-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Nascondi il toggler sui dispositivi con larghezza superiore a 768px (desktop) */
+@media (min-width: 768px) {
+    .navbar-toggler {
+        display: none; /* Nasconde il toggler sui dispositivi più grandi */
+    }
+}
+
+/* 🔥 MENU HAMBURGER - RESPONSIVE */
+@media (max-width: 768px) {
+    /* Nasconde i link e mostra l'icona */
+    .navbar-nav {
+        gap: 25px;
+        display: none; /* Nasconde i link normali */
+        flex-direction: column;
+        position: relative;
+        top: 10px; /* Sotto la navbar */
+        right: 20px; /* Estremità destra */
+        padding: 20px;
+        border-radius: 10px;
+        align-items: center; /* Centra gli elementi nella navbar */
+        width: 100%;
+    }
+
+    .navbar-collapse {
+        text-align: center; /* Centra i link */
+    }
+
+    .navbar-nav.show {
+        display: flex; /* Mostra il menu quando attivo */
+    }
+
+    .navbar-toggler {
+        display: block; /* Mostra il pulsante */
+        background: none;
+        border: none;
+        font-size: 24px;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+    }
+
+    .navbar-toggler:focus {
+        outline: none;
+    }
+
+    .navbar-toggler:hover {
+        cursor: pointer;
+    }
+
+    /* Stile per il bottone */
+    .navbar-toggler-icon {
+        display: block;
+        width: 30px;
+        height: 3px;
+        background: black;
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        display: none;
+    }
+}
+.title {
+    font-family: 'SFSGFont', sans-serif;
+    font-size: clamp(30px, 5vw, 90px);
+    font-weight: bold;
+    color: #12193b;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .title {
+        transition: 4s;
+        position: absolute;
+        top: 0; /* Distanza dal bordo superiore */
+        z-index: 10; /* Posiziona sopra gli altri elementi */
+        left: 5px; /* Distanza dal bordo sinistro */
+        text-align: left; /* Allinea il testo a sinistra */
+        padding: 10px;
+    }
+}
+
+   
