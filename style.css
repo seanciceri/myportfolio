@@ -154,7 +154,7 @@ body {
     }
 }
 .title {
-    font-family: 'SFSGFont', sans-serif;
+    font-family: 'PixelFont', sans-serif;
     font-size: clamp(30px, 5vw, 90px);
     font-weight: bold;
     color: #12193b;
@@ -163,7 +163,6 @@ body {
 
 @media (max-width: 768px) {
     .title {
-        transition: 4s;
         position: absolute;
         top: 0; /* Distanza dal bordo superiore */
         z-index: 10; /* Posiziona sopra gli altri elementi */
@@ -172,5 +171,69 @@ body {
         padding: 10px;
     }
 }
+
+.carousel{
+    background-color: #f9ebc5;
+    border-radius: 30px;
+    padding: 20px 0;
+    margin-left: 90px;
+    margin-right: 90px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.carousel img {
+    width: 100%; /* Occupa tutto lo spazio disponibile nel carosello */
+    max-width: 300px; /* Imposta una dimensione massima */
+    max-height: 500px; /* Altezza massima per evitare che sia troppo grande */
+    object-fit: cover; /* Mantiene le proporzioni senza ritagliare */
+    display: block;
+    margin: 0 auto; /* Centra l'immagine */
+    border-radius: 30px;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: 10px; /* Li posiziona poco sopra il bordo inferiore */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex !important;
+    justify-content: center;
+    gap: 8px; /* Distanza tra i puntini */
+}
+
+.slick-dots li button {
+    width: 15px;
+    height: 15px;
+    background-color: white; /* Colore dei puntini */
+    border-radius: 50%; /* Li rende rotondi */
+    border: 2px solid black; /* Bordo per renderli più visibili */
+}
+
+.slick-dots li.slick-active button {
+    background-color: black; /* Cambia colore quando attivo */
+}
+
+
+
+@media (max-width: 768px) {
+    .carousel {
+        width: 100%;
+        max-width: 90vw;
+        margin: 0 auto;
+    }
+}
+
+.carousel img {
+    width: 100%; /* Assicura che le immagini si ridimensionino */
+    height: auto; /* Mantiene le proporzioni */
+    max-height: 70vh; /* Evita che occupino troppo spazio verticale */
+}
+
+.slick-prev, .slick-next {
+    display: block !important; /* Assicura che le frecce siano visibili */
+}
+
 
    
