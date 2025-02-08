@@ -173,7 +173,7 @@ body {
 }
 
 .carousel{
-    background-color: #f9ebc5;
+    background-color: #042858;
     border-radius: 30px;
     padding: 20px 0;
     margin-left: 90px;
@@ -191,7 +191,13 @@ body {
     display: block;
     margin: 0 auto; /* Centra l'immagine */
     border-radius: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+
+/*.carousel img:hover {
+    transform: scale(1.05); /* Ingrandisce l'immagine al passaggio del mouse 
+    transition: transform 0.3s ease; /* Transizione più fluida 
+} */
 
 .slick-dots {
     position: absolute;
@@ -234,6 +240,110 @@ body {
 .slick-prev, .slick-next {
     display: block !important; /* Assicura che le frecce siano visibili */
 }
+
+/* Sfoca tutte le immagini tranne quella principale */
+.slick-slide img {
+    filter: blur(7px); /* Effetto sfocatura */
+    transition: filter 0.3s ease; /* Transizione più fluida */
+}
+
+/* L'immagine principale è nitida */
+.slick-slide.active-slide img {
+    filter: blur(0); /* Nessuna sfocatura */
+}
+
+.slick-slide {
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+}
+
+.slick-slide:hover {
+    transform: scale(1.03); /* Ingrandisce leggermente */
+    z-index: 10; /* Porta sopra le altre immagini */
+}
+
+.slick-list {
+    overflow: hidden; /* Mantiene il carosello pulito */
+}
+
+.slick-track {
+    overflow: visible; /* Permette alle immagini di fuoriuscire quando sono in hover */
+}
+
+
+/* Rettangoli Comptenze */
+
+.box {
+    display: flex;
+    position: relative;
+    font-family: 'PixelFont', sans-serif;
+    background-color: #fee025; /* Colore di sfondo */
+    color: black; /* Testo bianco */
+    text-align: center; /* Testo centrato */
+    padding: 40px 20px; /* Altezza e larghezza dei box */
+    border-radius: 30px; /* Angoli arrotondati */
+    width: 100%; /* Occupa tutto lo spazio della colonna */
+    overflow: hidden;
+}
+
+.container-boxes {
+    padding-top: 90px;
+    display: flex;
+    justify-content: space-between; /* Distanza uniforme tra i box */
+    margin: 40px auto; /* Margine per separare dal resto */
+    max-width: 90%; /* Non troppo largo */
+    gap: 20px; /* Distanza tra i box */
+}
+
+.box img {
+    width: 60px; /* Dimensione dell'icona */
+    height: 60px;
+    margin-left: 10px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50px;
+    
+}
+
+.box .title-text{
+    position: absolute;
+    top: 40px;
+    font-size: clamp(10px, 2vw, 16px); /* Il testo si ridimensiona ma resta leggibile */
+    font-family: 'PixelFont', sans-serif;
+    margin-left: 70px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Stile per la descrizione */
+.box .description-text {
+    position: relative;
+    font-size: clamp(10px, 1.2vw, 14px);
+    font-family: 'PixelFont', sans-serif;
+    margin-left: 70px;
+    text-align: left;
+    margin-top: 40px; /* Per separarlo dal titolo */
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .container-boxes {
+        flex-direction: column; /* Impila i box uno sopra l'altro */
+        align-items: center; /* Centra i box */
+        gap: 10px;
+    }
+
+    .box {
+        width: 100%; /* Occupa tutto lo spazio disponibile */
+        padding: 30px 20px;
+    }
+}
+
 
 
    
