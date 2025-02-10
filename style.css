@@ -1,3 +1,4 @@
+
 /* Importa font personalizzati */
 @font-face {
     font-family: 'ChainsmokersFont';
@@ -16,7 +17,7 @@
 
 /* Imposta lo sfondo verde per l'intera pagina */
 body {
-    background-color: #fdf9ec;
+    background-color: #FFFFD5;
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
@@ -173,7 +174,7 @@ body {
 }
 
 .carousel{
-    background-color: #042858;
+    background-color: #071C78;
     border-radius: 30px;
     padding: 20px 0;
     margin-left: 90px;
@@ -270,7 +271,6 @@ body {
     overflow: visible; /* Permette alle immagini di fuoriuscire quando sono in hover */
 }
 
-
 /* Rettangoli Comptenze */
 
 .box {
@@ -313,7 +313,7 @@ body {
     font-size: clamp(10px, 2vw, 16px); /* Il testo si ridimensiona ma resta leggibile */
     font-family: 'PixelFont', sans-serif;
     margin-left: 70px;
-    font-weight: bold;
+    /* font-weight: bold; */
     text-align: left;
 }
 
@@ -344,6 +344,100 @@ body {
     }
 }
 
+
+.video-container {
+    width: clamp(60vw, 80vw, 1200px);
+    max-width: 1200px;
+    height: 500px;
+    background-color: #223679;
+    border-radius: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 40px auto;
+    padding: 40px;
+    overflow: hidden; /* 🔴 Evita che il video esca fuori dai bordi arrotondati */
+}
+
+.video-container video {
+    width: auto;
+    height: auto;
+    max-height: 100%; /* Mantiene le proporzioni corrette */
+    object-fit: contain;
+    border-radius: 30px; /* 🔴 Arrotonda i bordi del video */
+    /* border: 5px solid #F2B705; */
+}
+
+.video-titolo{
+    font-size: 50px;
+    color: #F2B705;
+    margin: 0;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.video-text{
+    font-size: 1.6vw;
+    position: relative;
+    padding: 10px;
+    font-family: 'PixelFont', sans-serif;
+    margin: 0 50px;
+}
+
+@media (max-width: 768px) {
+    .video-container {
+        flex-direction: column; /* Impila il video sopra il testo */
+        align-items: center; /* Centra il video */
+        padding: 20px; /* Distanza interna ridotta */
+        height: auto;
+    }
+
+    .video-container video {
+        max-height: 50vh; /* Altezza massima del video */
+        max-width: 90%;
+        width: auto; /* Mantiene le proporzioni del video */
+        border-radius: 30px;
+        margin-bottom: 20px; /* Distanza tra il video e il testo */
+    }
+
+    .video-titolo {
+        font-size: 40px; /* Dimensione del titolo ridotta */
+        text-align: center; /* Centra il testo */
+        margin-top: 20px; /* Distanza tra il titolo e la parte superiore */
+        margin-bottom: 20px; /* Distanza tra il titolo e il testo */
+    }
+
+    .video-text {
+        font-size: 20px; /* Dimensione del testo ridotta */
+        text-align: center; /* Centra il testo */
+    }
+}
+
+@media (min-width: 1600px) {
+    .video-container {
+        max-width: 1400px; /* Aumenta ancora la larghezza su monitor molto grandi */
+        height: 550px; /* Puoi aumentare anche l'altezza per bilanciare */
+    }
+    .video-titolo{
+        font-size: 60px;
+    }
+    .video-text{
+        font-size: 30px;
+    }
+}
+
+/* COLORI SFONDO BOX VIDEO 1*/
+.video-primo{
+    background-color: #F2A679;
+}
+
+.video-secondo{
+    background-color: #070E38;
+}
+
+/* VIDEO DUE INIZIO */
 
 
    

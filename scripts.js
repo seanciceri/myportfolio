@@ -6,14 +6,17 @@ function toggleMenu() {
 //INIZIALIZZAZIONE SLICK Carousel
 $(document).ready(function(){
     $('.carousel').slick({
+        autoplay: true,
+        autoplaySpeed: 1300,
         lazyLoad: 'ondemand',
         slidesToShow: 3,
         slidesToScroll: 1,
         infinite: true,
         dots: true,  // Disabilita i puntini
         arrows: true, // Attiva le frecce
-        prevArrow: '<button class="slick-prev">&#10094;</button>',
-        nextArrow: '<button class="slick-next">&#10095;</button>'
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        
     });
   });
 
@@ -24,5 +27,24 @@ $(document).ready(function(){
     $('.carousel .slick-slide[data-slick-index="' + (currentSlide + centerIndex) + '"]').addClass('active-slide');
 });
       
-//INIZIALIZZAZIONE MODELLO 3D
+
+// INIZIALIZZAZIONE CONTROLLO RIPRODUZIONE VIDEO (SE UN VIDEO è IN PLAY, UN'ALTRO NON PUò ESSERE RIPRODOTTO)
+
+document.addEventListener("DOMContentLoaded", function () {
+    const videos = document.querySelectorAll("video");
+
+    videos.forEach((video) => {
+        video.addEventListener("play", function () {
+            // Ferma tutti gli altri video
+            videos.forEach((v) => {
+                if (v !== video) {
+                    v.pause();
+                }
+            });
+        });
+    });
+});
+
+
+
 
