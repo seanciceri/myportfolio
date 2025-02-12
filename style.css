@@ -17,11 +17,20 @@
 
 /* Imposta lo sfondo verde per l'intera pagina */
 body {
-    background-color: #FFFFD5;
+    transition: background-color 0.8s ease-in-out;
+    background-color: #A0A4F2;
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
 }
+
+/* .main-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; 
+} */
+    /* Snap verticale obbligatorio */ 
+
 
 /* Navbar - Trasparente con margini sistemati */
 .navbar {
@@ -72,13 +81,13 @@ body {
     text-transform: uppercase;
     padding: 10px 25px;
     border-radius: 30px;
-    background-color: #f9ebc5;
+    background-color: #777DF2;
     transition: background-color 0.3s ease;
 }
 
 /* Hover sui link */
 .navbar-nav .nav-link:hover {
-    background-color: #fcaed3;
+    background-color: #303AF2;
     color: #12193b;
 }
 
@@ -174,7 +183,7 @@ body {
 }
 
 .carousel{
-    background-color: #071C78;
+    background-color: #777DF2;
     border-radius: 30px;
     padding: 20px 0;
     margin-left: 90px;
@@ -220,6 +229,11 @@ body {
 
 .slick-dots li.slick-active button {
     background-color: black; /* Cambia colore quando attivo */
+}
+
+
+h2 {
+    color: black;
 }
 
 
@@ -277,7 +291,7 @@ body {
     display: flex;
     position: relative;
     font-family: 'PixelFont', sans-serif;
-    background-color: #fee025; /* Colore di sfondo */
+    background-color: #777DF2; /* Colore di sfondo */
     color: black; /* Testo bianco */
     text-align: center; /* Testo centrato */
     padding: 40px 20px; /* Altezza e larghezza dei box */
@@ -346,6 +360,7 @@ body {
 
 
 .video-container {
+    scroll-snap-align: start;
     width: clamp(60vw, 80vw, 1200px);
     max-width: 1200px;
     height: 500px;
@@ -357,7 +372,9 @@ body {
     margin: 40px auto;
     padding: 40px;
     overflow: hidden; /* 🔴 Evita che il video esca fuori dai bordi arrotondati */
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Transizione applicata sempre */
 }
+
 
 .video-container video {
     width: auto;
@@ -366,6 +383,12 @@ body {
     object-fit: contain;
     border-radius: 30px; /* 🔴 Arrotonda i bordi del video */
     /* border: 5px solid #F2B705; */
+}
+
+.video-container:hover {
+    transform: scale(1.03); /* Ingrandisce il video al passaggio del mouse */
+    transition: transform 0.5s ease; /* Transizione più fluida */
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .video-titolo{
@@ -430,11 +453,41 @@ body {
 
 /* COLORI SFONDO BOX VIDEO 1*/
 .video-primo{
-    background-color: #F2A679;
+    background-color: #04198C;
 }
 
 .video-secondo{
-    background-color: #070E38;
+    background-color: #380140;
+}
+
+.video-terzo{
+    background-color: #F2BF27;
+}
+
+.titolo1{
+    color: #F2CB05;
+}
+
+.titolo2{
+    color: #F288C2;
+}
+
+.titolo3{
+    color: #110273;
+}
+
+
+
+.frase1{
+    color: #F2CB05;
+}
+
+.frase2{
+    color: #F288C2;
+}
+
+.frase3{
+    color: #110273;
 }
 
 /* VIDEO DUE INIZIO */
