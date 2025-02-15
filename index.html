@@ -7,6 +7,8 @@
 
   <!-- Link al CSS -->
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
 
@@ -14,9 +16,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ03vQ8c9kWzChf5KQQmuJxY9fQNbmlyb+Byx1z5iRI4I+Yx/59d6SzLP1z0" crossorigin="anonymous">
 </head>
 <body>
-
-     
-
+      <!-- <div id="3d-container"></div> -->
  <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
@@ -49,6 +49,8 @@
       </div>
     </div>
   </nav>   
+
+
 
   <!-- <div class="main-container"> -->
     <!-- Home Titolo -->  
@@ -102,7 +104,7 @@
         </div>
     </div>
 
-    <div><h2>PROGETTI</h2></div>
+    <div><h2>MY ORGINALS</h2></div>
 
     <!-- VIDEO NUMERO 1 -->
 
@@ -137,7 +139,17 @@
         <video src="Video/here_without_you_video.mp4" type="video/mp4" poster="copertine/copertinaSadStairs.jpg" muted controls></video>
     </div>
 
-        <!-- NOTA PEE DOMANI: Creare classe per i singoli titoli e testi dei video per cambiare colore selettivamente -->
+    <!-- VIDEO NUMERO 4 -->
+    <div class="video-container video-quarto" data-color="#F2E2CE">
+      <p class="video-titolo titolo4">FRAME-BYE-FRAME</p>
+      <p class="video-text frase4">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Earum molestiae adipisci cupiditate totam quisquam repellat recusandae 
+          in magnam rerum assumenda, labore, placeat odit delectus laboriosam sint 
+          voluptatibus maiores necessitatibus quae.
+      </p>
+      <video class="risoluzione-quarto" src="Video/Frame-BYE-Frame_video.mp4" type="video/mp4" poster="copertine/copertinaFrameByeFrame.png" muted controls></video>
+  </div>
 
 
 
@@ -147,9 +159,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFwvYYW4fs4IepCwQ8qFJcysnBbUicFqaP0bPxzHfq5b" crossorigin="anonymous"></script>
   <script src="scripts.js"></script>
 
-    
 
-
+  
+  <script src="main.js"></script>
 
 </body>
 </html>

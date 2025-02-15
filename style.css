@@ -24,12 +24,16 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
-/* .main-container {
+#3d-container {
+    position: fixed; /* Rende il canvas indipendente dal layout */
+    top: 0;
+    left: 0;
+    width: 100vw;
     height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory; 
-} */
-    /* Snap verticale obbligatorio */ 
+    pointer-events: none; /* Permette di interagire con gli elementi sotto */
+    z-index: -1; /* Mette il modello dietro al contenuto della pagina */
+    visibility: hidden;
+  }
 
 
 /* Navbar - Trasparente con margini sistemati */
@@ -99,6 +103,8 @@ body {
     width: 100%;
 }
 
+
+
 /* Nascondi il toggler sui dispositivi con larghezza superiore a 768px (desktop) */
 @media (min-width: 768px) {
     .navbar-toggler {
@@ -158,6 +164,7 @@ body {
     }
 }
 
+
 @media (max-width: 768px) {
     .navbar-brand {
         display: none;
@@ -183,12 +190,17 @@ body {
 }
 
 .carousel{
-    background-color: #777DF2;
+    background-color: rgba(48, 58, 242, 0.5); /* Blu con opacità per l'effetto vetro */
     border-radius: 30px;
     padding: 20px 0;
     margin-left: 90px;
     margin-right: 90px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    backdrop-filter: blur(80px); /* Effetto sfocatura sullo sfondo */
+    -webkit-backdrop-filter: blur(10px); /* Supporto per Safari */
+    position: relative;
+    z-index: 10; /* Assicura che sia davanti */
 }
 
 
@@ -233,7 +245,7 @@ body {
 
 
 h2 {
-    color: black;
+    color: #777DF2;
 }
 
 
@@ -272,17 +284,17 @@ h2 {
     position: relative;
 }
 
-.slick-slide:hover {
-    transform: scale(1.03); /* Ingrandisce leggermente */
-    z-index: 10; /* Porta sopra le altre immagini */
-}
+/* .slick-slide:hover {
+    transform: scale(1.03); 
+    z-index: 10; 
+} */
 
 .slick-list {
     overflow: hidden; /* Mantiene il carosello pulito */
 }
 
 .slick-track {
-    overflow: visible; /* Permette alle immagini di fuoriuscire quando sono in hover */
+    overflow: hidden; /* Permette alle immagini di fuoriuscire quando sono in hover */
 }
 
 /* Rettangoli Comptenze */
@@ -464,6 +476,10 @@ h2 {
     background-color: #F2BF27;
 }
 
+.video-quarto{
+    background-color: #F2E4BB;
+}
+
 .titolo1{
     color: #F2CB05;
 }
@@ -474,6 +490,16 @@ h2 {
 
 .titolo3{
     color: #110273;
+}
+
+/* Stile per il titolo */
+/* .titolo4: Posizione centrata in alto sopra il video */
+.titolo4 {
+    font-weight: bold;
+    color: #594A3C;
+    text-align: center;
+    margin-top: 0; /* Riduci il margine superiore */
+    font-size: 40px;
 }
 
 
@@ -490,7 +516,64 @@ h2 {
     color: #110273;
 }
 
-/* VIDEO DUE INIZIO */
+/* .frase4: Testo centrato e posizionato sopra il video */
+.frase4 {
+    font-size: 16px;
+    color: #594A3C;
+    text-align: center;
+    width: 80%; /* Limita la larghezza */
+    line-height: 1.4; /* Spazio tra le righe */
+    margin-top: 2vh; /* Distanza tra il titolo e la frase */
+}
+
+/* VIDEO Quarto orizzontale */
+
+/* .video-quarto: Mantieni il layout come flex per centrare il contenuto */
+.video-quarto {
+    position: relative; /* Permette il posizionamento assoluto degli elementi interni */
+    width: clamp(60vw, 80vw, 1200px);
+    max-width: 1200px;
+    height: 550px; /* Altezza sufficiente per video e testo */
+    background-color: #D9C2A7;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column; /* Per mettere il titolo e il testo sopra il video */
+    justify-content: flex-start; /* Allinea tutto verso l'alto */
+    align-items: center; /* Centra il contenuto orizzontalmente */
+    margin: 40px auto;
+    padding: 40px;
+    overflow: hidden;
+}
 
 
-   
+/* VIDEO Quarto */
+.risoluzione-quarto {
+    max-height: 60vh;
+    max-width: 70%;
+    width: auto;
+    display: block;
+    border-radius: 30px;
+    margin-top: 20px; /* Margine tra il testo e il video */
+}
+
+
+/* Media query per schermi piccoli */
+@media (max-width: 768px) {
+    .titolo4 {
+        font-size: 40px; /* Dimensione del titolo ridotta */
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .frase4 {
+        font-size: 20px; /* Dimensione del testo ridotta */
+        width: 90%; /* Aumenta la larghezza del testo sui dispositivi piccoli */
+    }
+}
+
+@media (min-width: 1600px) {
+    .video-quarto {
+        max-width: 1400px; /* Aumenta ancora la larghezza su monitor molto grandi */
+        height: 800px; /* Puoi aumentare anche l'altezza per bilanciare */
+    }
+}

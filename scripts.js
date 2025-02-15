@@ -1,7 +1,3 @@
-// Funzione per mostrare/nascondere il menu hamburger
-function toggleMenu() {
-    document.querySelector('.navbar-nav').classList.toggle('show');
-}
 
 //INIZIALIZZAZIONE SLICK Carousel
 $(document).ready(function(){
@@ -27,6 +23,9 @@ $(document).ready(function(){
     $('.carousel .slick-slide[data-slick-index="' + (currentSlide + centerIndex) + '"]').addClass('active-slide');
 });
 
+//INIZIALIZZAZIONE 3D MODEL
+
+
 // Effetto cambio colore body
 
 document.addEventListener("scroll", function () {
@@ -36,6 +35,7 @@ document.addEventListener("scroll", function () {
     let homepageColor = "#A0A4F2"; // Cambia questo con il colore della tua homepage
 
     let colorSet = false; // Flag per controllare se un colore è stato impostato
+
 
     sections.forEach(section => {
         let sectionTop = section.offsetTop;
@@ -101,6 +101,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+//PULSANTE HAMBURGHER ATTIVAZIONE
+
+// JavaScript per gestire l'apertura e la chiusura del menu
+// Funzione per aprire e chiudere il menu
+function toggleMenu() {
+    const menu = document.getElementById("navbarNav"); // Seleziona il menu
+    menu.classList.toggle("show"); // Aggiunge/rimuove la classe 'show'
+}
 
 
 
