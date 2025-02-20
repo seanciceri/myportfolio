@@ -18,37 +18,40 @@
 <body>
       <!-- <div id="3d-container"></div> -->
  <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-      <!-- Logo e Nome -->
-      <a class="navbar-brand" href="#">
-        <img src="avatarLogo.jpg" alt="Logo" class="logo">
-        <span class="navbar-name">Sean</span>
-      </a>
-  
-      <!-- Pulsante hamburger -->
-      <button class="navbar-toggler" onclick="toggleMenu()">
-        <span class="navbar-toggler-icon"></span>
-        <span class="navbar-toggler-icon"></span>
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <!-- Link navigazione -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav center-links">
-          <li class="nav-item">
-            <a class="nav-link btn" href="#home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn" href="#progetti">Progetti</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn" href="#chi-sono">Chi sono</a>
-          </li>
-        </ul>
-      </div>
+ <nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <!-- Logo e Nome -->
+    <a class="navbar-brand" href="#">
+      <img src="avatarLogo.jpg" alt="Logo" class="logo">
+      <span class="navbar-name">Sean</span>
+    </a>
+
+   
+
+
+    <!-- Pulsante hamburger -->
+    <button class="navbar-toggler" onclick="toggleMenu()">
+      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Link navigazione -->
+    <div class="navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav center-links">
+        <li class="nav-item">
+          <a class="nav-link btn" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn" href="#progetti">Progetti</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn" href="#chi-sono">Chi sono</a>
+        </li>
+      </ul>
     </div>
-  </nav>   
+  </div>
+</nav>
 
 
 
@@ -58,7 +61,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <h1>MYPORTFOLIO</h1>
+            <h1 id="title-text"></h1>
         </div>
       </div>
 
@@ -139,17 +142,53 @@
         <video src="Video/here_without_you_video.mp4" type="video/mp4" poster="copertine/copertinaSadStairs.jpg" muted controls></video>
     </div>
 
-    <!-- VIDEO NUMERO 4 -->
-    <div class="video-container video-quarto" data-color="#F2E2CE">
-      <p class="video-titolo titolo4">FRAME-BYE-FRAME</p>
-      <p class="video-text frase4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Earum molestiae adipisci cupiditate totam quisquam repellat recusandae 
-          in magnam rerum assumenda, labore, placeat odit delectus laboriosam sint 
-          voluptatibus maiores necessitatibus quae.
-      </p>
-      <video class="risoluzione-quarto" src="Video/Frame-BYE-Frame_video.mp4" type="video/mp4" poster="copertine/copertinaFrameByeFrame.png" muted controls></video>
+    <!-- SEZIONE CHI SONO -->
+     <h1>About Me</h1>
+
+    <div class="schede-container" data-color="#9878cf">
+      <div class="scheda-foto">
+          <img src="copertine/fotoSilhouette.jpg" alt="">
+      </div>
+      <div class="schede-content">
+          <div class="scheda-lunga">
+              <h3 class="titolino">Nice to meet you!</h3>
+              <p class="chi-sono">My goal is to elevate companies like yours through 
+                the power of design. 
+                I am here to help you effectively convey your message and make a 
+                positive impact. Let's bring your vision to life!</p>
+          </div>
+          <div class="schede-corte-container">
+              <div class="scheda-corta">
+                <h3 class="sottotitolo-schede">The perfect blend of visual design and UX</h3>
+                <p class="altre-info">With 15 years of multi-disciplinary design experience,
+                  I blend beautiful visual design and the clarity of UX, all under one roof.</p>
+              </div>
+              <div class="scheda-corta">
+                <h3 class="sottotitolo-schede">A passion for clean, simple design</h3>
+                <p class="altre-info">I believe that less is more. I strive to create clean, 
+                  simple designs that are easy to use and beautiful to look at.</p>
+              </div>
+          </div>
+      </div>
   </div>
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

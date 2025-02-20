@@ -1,4 +1,29 @@
+//INIZIALIZZAZIONE TYPING EFFECT
+document.addEventListener("DOMContentLoaded", function () {
+    const text = "MY PORTFOLIO";
+    const title = document.getElementById("title-text");
+    let index = 0;
 
+    function type() {
+        if (index < text.length) {
+            title.textContent = text.substring(0, index + 1);
+            index++;
+            setTimeout(type, 150);
+        } else {
+            title.style.borderRight = "none";
+        }
+    }
+
+    // 🔥 Imposta il testo invisibile inizialmente (ma con spazio già riservato)
+    title.textContent = text;
+    title.style.color = "transparent";
+
+    setTimeout(() => {
+        title.style.color = "#12193b"; // Mostra il testo e inizia l'effetto
+        title.textContent = "";
+        type();
+    }, 200);
+});
 //INIZIALIZZAZIONE SLICK Carousel
 $(document).ready(function(){
     $('.carousel').slick({
@@ -29,26 +54,30 @@ $(document).ready(function(){
 // Effetto cambio colore body
 
 document.addEventListener("scroll", function () {
-    let sections = document.querySelectorAll(".video-container");
+    let sections = document.querySelectorAll(".video-container, .schede-container"); // Seleziona entrambe le sezioni
     let scrollPosition = window.scrollY + window.innerHeight / 2;
-    
-    let homepageColor = "#A0A4F2"; // Cambia questo con il colore della tua homepage
+
+    let homepageColor = "#A0A4F2"; // Colore di default
 
     let colorSet = false; // Flag per controllare se un colore è stato impostato
-
 
     sections.forEach(section => {
         let sectionTop = section.offsetTop;
         let sectionHeight = section.offsetHeight;
 
+        // Verifica se la sezione è visibile
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
             let newColor = section.getAttribute("data-color");
-            document.body.style.backgroundColor = newColor;
-            colorSet = true; // Imposta la flag su true perché un colore è stato applicato
+
+            // Cambia il colore solo se la sezione ha un data-color
+            if (newColor) {
+                document.body.style.backgroundColor = newColor;
+                colorSet = true; // Imposta il flag su true
+            }
         }
     });
 
-    // Se nessuna sezione è stata rilevata come attiva, riporta il colore della homepage
+    // Se nessuna sezione è attiva, applica il colore della homepage
     if (!colorSet) {
         document.body.style.backgroundColor = homepageColor;
     }
@@ -105,12 +134,32 @@ document.addEventListener("DOMContentLoaded", function () {
 //PULSANTE HAMBURGHER ATTIVAZIONE
 
 // JavaScript per gestire l'apertura e la chiusura del menu
-// Funzione per aprire e chiudere il menu
 function toggleMenu() {
-    const menu = document.getElementById("navbarNav"); // Seleziona il menu
-    menu.classList.toggle("show"); // Aggiunge/rimuove la classe 'show'
-}
+    const navbarNav = document.querySelector(".navbar-nav"); // Selezioniamo i link di navigazione
+    navbarNav.classList.toggle("show"); // Aggiungiamo o rimuoviamo la classe 'show'
+  }
 
+
+//effetto scrolling parallax verticale
+
+document.addEventListener("scroll", function () {
+    let elementi = document.querySelectorAll(".video-container, .video-titolo, .video-text, .schede-container");
+
+    elementi.forEach(elemento => {
+        let rect = elemento.getBoundingClientRect();
+        let windowHeight = window.innerHeight;
+
+        if (rect.top < windowHeight - 50 && rect.bottom > 0) { 
+            // 🔥 Quando l'elemento entra nello schermo
+            elemento.style.opacity = 1;
+            elemento.style.transform = "translateY(0)";
+        } else {
+            // 🔥 Quando l'elemento esce dallo schermo, resetta l'animazione
+            elemento.style.opacity = 0;
+            elemento.style.transform = "translateY(50px)";
+        }
+    });
+});
 
 
 

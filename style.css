@@ -24,16 +24,7 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
-#3d-container {
-    position: fixed; /* Rende il canvas indipendente dal layout */
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none; /* Permette di interagire con gli elementi sotto */
-    z-index: -1; /* Mette il modello dietro al contenuto della pagina */
-    visibility: hidden;
-  }
+
 
 
 /* Navbar - Trasparente con margini sistemati */
@@ -106,63 +97,58 @@ body {
 
 
 /* Nascondi il toggler sui dispositivi con larghezza superiore a 768px (desktop) */
-@media (min-width: 768px) {
-    .navbar-toggler {
-        display: none; /* Nasconde il toggler sui dispositivi più grandi */
-    }
+/* Impostazioni generali per navbar */
+.navbar-toggler {
+    display: none; /* Nasconde il pulsante hamburger di default */
 }
 
-/* 🔥 MENU HAMBURGER - RESPONSIVE */
+/* Impostazioni di base per il menu */
+.navbar-nav {
+    display: flex; /* Per visualizzare i link in orizzontale su schermi grandi */
+    gap: 15px;
+  }
+
+  /* Su schermi più piccoli (mobile) */
 @media (max-width: 768px) {
-    /* Nasconde i link e mostra l'icona */
     .navbar-nav {
-        gap: 25px;
-        display: none; /* Nasconde i link normali */
-        flex-direction: column;
-        position: relative;
-        top: 10px; /* Sotto la navbar */
-        right: 20px; /* Estremità destra */
-        padding: 20px;
-        border-radius: 10px;
-        align-items: center; /* Centra gli elementi nella navbar */
-        width: 100%;
+      display: none; /* Nascondi i link di navigazione */
+      flex-direction: column; /* Disporli verticalmente quando vengono mostrati */
+      position: absolute;
+      top: 60px; /* Posiziona i link sotto la navbar */
+      right: 0;
+      width: 100%; /* Occupa tutta la larghezza */
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      gap: 20px; /* Distanza tra i link */
     }
-
-    .navbar-collapse {
-        text-align: center; /* Centra i link */
-    }
-
+  
+    /* Mostra i link quando il menu è visibile */
     .navbar-nav.show {
-        display: flex; /* Mostra il menu quando attivo */
+      display: flex; /* Mostra i link in verticale */
     }
-
+  
+    /* Pulsante hamburger */
     .navbar-toggler {
-        display: block; /* Mostra il pulsante */
-        background: none;
-        border: none;
-        font-size: 24px;
-        position: absolute;
-        top: 10px;
-        right: 20px;
+      display: block; /* Mostra il pulsante su schermi piccoli */
+      background: none;
+      border: none;
+      font-size: 30px;
+      position: absolute;
+      top: 15px;
+      right: 15px;
     }
-
-    .navbar-toggler:focus {
-        outline: none;
-    }
-
-    .navbar-toggler:hover {
-        cursor: pointer;
-    }
-
-    /* Stile per il bottone */
+  
+    /* Stilizza il simbolo hamburger */
     .navbar-toggler-icon {
-        display: block;
-        width: 30px;
-        height: 3px;
-        background: black;
-        margin: 5px 0;
+      width: 30px;
+      height: 3px;
+      background-color: black;
+      margin: 5px 0;
     }
-}
+  }
+
+
 
 
 @media (max-width: 768px) {
@@ -301,16 +287,22 @@ h2 {
 
 .box {
     display: flex;
+    flex-direction: column; /* 🔥 Impila title-text sopra e description-text sotto */
+    align-items: flex-start; /* 🔥 Allinea il testo a sinistra */
     position: relative;
     font-family: 'PixelFont', sans-serif;
-    background-color: #777DF2; /* Colore di sfondo */
-    color: black; /* Testo bianco */
-    text-align: center; /* Testo centrato */
-    padding: 40px 20px; /* Altezza e larghezza dei box */
-    border-radius: 30px; /* Angoli arrotondati */
-    width: 100%; /* Occupa tutto lo spazio della colonna */
+    background-color: #777DF2;
+    color: black;
+    text-align: left; /* 🔥 Testo allineato a sinistra */
+    padding: 40px 40px; /* Più spazio ai lati, ma meno stretto */
+    border-radius: 30px;
+    width: 100%;
+    max-width: 500px; /* Limita la larghezza per evitare che diventi troppo largo su schermi grandi */
+    min-height: 120px;
     overflow: hidden;
+    word-wrap: break-word;
 }
+
 
 .container-boxes {
     padding-top: 90px;
@@ -333,25 +325,24 @@ h2 {
     
 }
 
-.box .title-text{
-    position: absolute;
-    top: 40px;
-    font-size: clamp(10px, 2vw, 16px); /* Il testo si ridimensiona ma resta leggibile */
+.box .title-text {
+    font-size: clamp(12px, 3vw, 24px); /* 🔥 Scalerà tra 12px e 24px in base alla larghezza della finestra */
     font-family: 'PixelFont', sans-serif;
-    margin-left: 70px;
-    /* font-weight: bold; */
-    text-align: left;
+    margin-left: 60px; /* Spazio per allineare il titolo con l'immagine */
+    margin-bottom: 10px; /* Distanza tra titolo e descrizione */
 }
 
 /* Stile per la descrizione */
 .box .description-text {
-    position: relative;
-    font-size: clamp(10px, 1.2vw, 14px);
+    font-size: clamp(10px, 2vw, 18px); /* 🔥 Scalerà tra 10px e 18px */
     font-family: 'PixelFont', sans-serif;
-    margin-left: 70px;
-    text-align: left;
-    margin-top: 40px; /* Per separarlo dal titolo */
+    margin-left: 60px; /* Allinea la descrizione con il titolo */
+    margin-right: 3px;
+    margin-top: 5px; /* Distanza tra titolo e descrizione */
+    width: 90%; /* Utilizza tutta la larghezza disponibile */
+    word-wrap: break-word; /* Evita che il testo esca fuori dalla box */
 }
+
 
 
 
@@ -366,10 +357,19 @@ h2 {
 
     .box {
         width: 100%; /* Occupa tutto lo spazio disponibile */
+        max-height: 180px;
         padding: 30px 20px;
     }
-}
 
+    .box .title-text {
+        font-size: 20px;
+        margin-left: 75px;
+}
+    .box .description-text {
+        font-size: 16px;
+        margin-left: 75px;
+    }
+}
 
 .video-container {
     scroll-snap-align: start;
@@ -576,4 +576,161 @@ h2 {
         max-width: 1400px; /* Aumenta ancora la larghezza su monitor molto grandi */
         height: 800px; /* Puoi aumentare anche l'altezza per bilanciare */
     }
+}
+
+
+.schede-container {
+    display: flex;
+    align-items: flex-start; /* 🔥 Allinea tutto in alto */
+    gap: 20px; /* 🔥 Spazio tra gli elementi */
+    width: clamp(70vw, 90vw, 1200px);
+    margin: 40px auto;
+}
+
+.scheda-foto {
+    width: clamp(200px, 30vw, 350px); /* 🔥 Ancora più stretta */
+    max-width: 350px;
+    min-width: 200px;
+    height: 600px; /* 🔥 Altezza fissa */
+    background-color: transparent;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* 🔥 Impedisce che si restringa troppo */
+}
+
+.scheda-foto img {
+    width: 100%; /* Immagine che copre tutta la larghezza della scheda */
+    height: 100%; /* Immagine che copre tutta l'altezza della scheda */
+    object-fit: cover; /* L'immagine copre tutta la scheda mantenendo il suo rapporto di aspetto */
+    border-radius: 30px;
+}
+
+/* Contenitore per scheda lunga + schede corte */
+.schede-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 🔥 Spinge scheda lunga in alto e schede corte in basso */
+    gap: 20px;
+    height: 600px; /* 🔥 Stessa altezza di scheda-foto */
+    flex-grow: 1;
+}
+
+.scheda-lunga {
+    width: 100%;
+    max-width: 100%; /* Assicura che non superi mai il 100% della larghezza del contenitore */
+    height: 300px;
+    background-color: #4E0F8C;
+    display: flex;
+    flex-direction: column; /* 🔥 Disposizione verticale */
+    align-items: flex-start; /* 🔥 Allinea tutto a sinistra */
+    justify-content: flex-start; /* 🔥 Allinea tutto in alto */
+    border-radius: 30px;
+    padding: 10px 20px; /* 🔥 Padding interno, senza far espandere troppo la larghezza */
+    text-align: left;
+    box-sizing: border-box; /* 🔥 Impedisce che padding e bordi allarghino l'elemento */
+}
+
+/* Contenitore delle schede corte */
+.schede-corte-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.scheda-corta {
+    flex: 1;
+    height: 300px;
+    background-color: #6E1BA6;
+    border-radius: 30px;
+    width: 100%; /* 🔥 Impostato al 100% per essere sempre largo quanto la scheda-lunga */
+}
+
+
+.titolino {
+    color: #B099BF;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 0px; /* 🔥 Spinge il titolo più in alto, ma con un piccolo margine per non toccare il bordo */
+    margin-bottom: 5px; /* 🔥 Mantiene un po' di spazio tra titolo e testo */
+}
+
+.chi-sono {
+    color: #B099BF;
+    font-size: 20px;
+    margin-top: 20px; /* 🔥 Spinge il paragrafo "Chi sono" più in alto, ma senza toccare il bordo */
+}
+
+.sottotitolo-schede{
+    color: #B099BF;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 25px;
+    text-align: left;
+    padding: 10px 20px; /* 🔥 Padding interno, senza far espandere troppo la larghezza*/
+
+}
+
+.altre-info{
+    color: #B099BF;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 20px;
+    text-align: left;
+    padding: 10px 20px; /* 🔥 Padding interno, senza far espandere troppo la larghezza*/
+}
+
+
+@media (max-width: 768px) {
+    .schede-container {
+        flex-direction: column; /* Impila le schede una sopra l'altra */
+        
+    }
+
+    .scheda-foto {
+        width: 100%; /* La foto occupa tutta la larghezza */
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        height: 300px; /* Altezza fissa della foto */
+        position: relative; /* Necessario per l'immagine */
+    }
+
+    .schede-content {
+        height: auto; /* Altezza variabile */
+        display: flex;
+        flex-direction: column;
+        gap: 5px; /* Distanza tra scheda lunga e schede corte */
+    }
+
+    .scheda-lunga {
+        width: 100%; /* La larghezza della scheda lunga è 100% */
+        height: auto; /* Altezza variabile */
+    }
+
+    .schede-corte-container {
+        display: flex;
+        flex-direction: column; /* Impila le schede corte una sopra l'altra */
+        gap: 5px;
+    }
+
+    .scheda-corta {
+        width: 100%; /* Le schede corte occupano tutta la larghezza */
+        height: auto; /* Altezza variabile */
+    }
+}
+
+
+/* Inizio Effetto Scrolling Parallax verticale */
+
+.video-container,
+.video-titolo,
+.video-text,
+.schede-container
+{
+    transform: translateY(0);
+    transition: transform 0.5s ease;
 }
