@@ -133,11 +133,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //PULSANTE HAMBURGHER ATTIVAZIONE
 
-// JavaScript per gestire l'apertura e la chiusura del menu
+
 function toggleMenu() {
-    const navbarNav = document.querySelector(".navbar-nav"); // Selezioniamo i link di navigazione
-    navbarNav.classList.toggle("show"); // Aggiungiamo o rimuoviamo la classe 'show'
-  }
+    let overlay = document.querySelector('.container-overlay');
+    let toggler = document.querySelector('.navbar-toggler');
+
+    if (overlay.classList.contains('show')) {
+        overlay.classList.remove('show'); // Nasconde il menu
+        toggler.classList.remove('menu-open'); // Ripristina l'hamburger
+    } else {
+        overlay.classList.add('show'); // Mostra il menu
+        toggler.classList.add('menu-open'); // Cambia in X
+    }
+}
+
 
 
 //effetto scrolling parallax verticale
