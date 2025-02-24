@@ -136,16 +136,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function toggleMenu() {
     let overlay = document.querySelector('.container-overlay');
+    let menu = document.querySelector('.navbar-menu');
     let toggler = document.querySelector('.navbar-toggler');
+    let html = document.documentElement; // Seleziona l'elemento html
 
     if (overlay.classList.contains('show')) {
         overlay.classList.remove('show'); // Nasconde il menu
+        menu.classList.remove('show'); // Nasconde il menu
         toggler.classList.remove('menu-open'); // Ripristina l'hamburger
+        html.classList.remove('no-scroll'); // Riabilita lo scroll
     } else {
         overlay.classList.add('show'); // Mostra il menu
+        menu.classList.add('show'); // Mostra il menu
         toggler.classList.add('menu-open'); // Cambia in X
+        html.classList.add('no-scroll'); // Blocca lo scroll
     }
 }
+
+//CHIUSURA MENU QUANDO CLICCO SU UNA VOCE
+document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', function() {
+      // Chiudi il menu
+      let overlay = document.querySelector('.container-overlay');
+      let menu = document.querySelector('.navbar-menu');
+      let toggler = document.querySelector('.navbar-toggler');
+      let html = document.documentElement; // Seleziona l'elemento html
+  
+      overlay.classList.remove('show');
+      menu.classList.remove('show');
+      toggler.classList.remove('menu-open');
+      html.classList.remove('no-scroll');
+    });
+  });
 
 
 

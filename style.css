@@ -17,6 +17,7 @@
 
 /* Imposta lo sfondo verde per l'intera pagina */
 body {
+    overflow-x: hidden;
     transition: background-color 0.8s ease-in-out;
     background-color: #A0A4F2;
     margin: 0;
@@ -136,64 +137,97 @@ body {
 
 
 
+
+
   @media (max-width: 768px) {
-    /* Overlay che copre lo schermo */
+    
+    html.no-scroll {
+        overflow: hidden; /* Blocca lo scroll */
+    }
+    /* Overlay che copre tutto lo schermo */
     .container-overlay {
         position: fixed;
-        top: 30px;
+        top: 100px;
         left: 0;
         width: 100%;
         height: 0;
-        background: #A0A4F2;
+        background: #A0A4F2;    
+        /*  */
         z-index: 998;
         opacity: 0;
         visibility: hidden;
-        /* transform: translateY(-100%); */
         transition: height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+        overflow: hidden; /* 🔹 Evita che il contenuto crei overflow */
     }
 
     /* Menu che appare sopra l'overlay */
-    .navbar-menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: none;
+    /* Menu */
+.navbar-menu {
+    position: fixed;
+    top: -100vh; /* Nascondilo fuori dallo schermo */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra i link */
+    justify-content: center;
+    z-index: 999;
+    transition: top 0.5s ease-in-out;
+    overflow: hidden; /* 🔹 Evita scroll orizzontale */
+}
+
+    .navbar-menu ul {
+        position: absolute;
+        top: 80px;
+        display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background: transparent;
-        z-index: 999;
-        transform: translateY(-100%);
-        transition: transform 0.5s ease-in-out;
+        gap: 20px;
+        list-style: none;
+        padding: 5px;
+        width: 100%;
+        box-sizing: border-box; /* Evita problemi di larghezza extra */
     }
 
-    /* Effetto cascata quando il menu è attivo */
-    .container-overlay.show,
-    .navbar-menu.show {
-        height: calc(100vh - 30px);
+    /* Effetto cascata: quando il menu è attivo */
+    .container-overlay.show {
+        height: calc(100vh - 100px);
         opacity: 1;
         visibility: visible;
     }
 
-    
-    .navbar-nav {
-        display: none; /* Nasconde i link su schermi piccoli */
-    }
-    .navbar-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background: transparent;
-        padding: 15px;
-        border-radius: 10px;
-        width: 200px;
+    .navbar-menu.show {
+        top: 30px; /* Scende visibilmente */
     }
 
-    /* Mostra il pulsante hamburger */
+    /* Stile dei link */
+    /* Stile dei link */
+    .navbar-menu .nav-link {
+        font-size: 20px;
+        color: #12193b;
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 8px 20px; /* Più spazio */
+        width: 98vw;
+        background-color: #777DF2;
+        display: flex;
+        justify-content: space-between;  /* Spinge l'emoji a destra */
+        align-items: center;  /* Allinea il testo e l'emoji verticalmente */
+        transition: background-color 0.3s ease;
+        box-sizing: border-box;
+    }
+
+    .arrow {
+        margin-left: 10px; /* Spazio tra il testo e l'emoji */
+        font-size: 24px;  /* Puoi regolare la dimensione dell'emoji se necessario */
+    }
+
+    .navbar-menu .nav-link:hover {
+        background-color: #303AF2;
+        color: white;
+    }
+
+    /* Pulsante hamburger */
     .navbar-toggler {
         display: block;
         background: none;
@@ -205,37 +239,34 @@ body {
         z-index: 1000;
     }
 
+    /* Icona hamburger */
     .navbar-toggler-icon {
         display: block;
-        width: 30px;
+        width: 25px;
         height: 4px;
         background: black;
         margin: 6px 0;
     }
 
+    /* X di chiusura */
     .close-icon {
         display: none; /* Nascondi la X inizialmente */
-        width: 30px;
-        height: 30px;
+        font-size: 35px;
         position: absolute;
-        top: 0;
-        right: 5px;
-        font-size: 40px;
+        top: -5px;
+        right: 8px;
         color: black;
-        text-align: center;
-        line-height: 30px;
-        font-weight: bold;
+        cursor: pointer;
     }
 
-    /* Mostra il menu quando attivo */
+    /* Mostra la X e nasconde l'hamburger quando il menu è aperto */
     .menu-open .navbar-toggler-icon {
-        display: none; /* Nasconde l'icona hamburger */
-    }
-    
-    .menu-open .close-icon {
-        display: block; /* Mostra la X */
+        display: none;
     }
 
+    .menu-open .close-icon {
+        display: block;
+    }
 }
 
 
@@ -260,13 +291,12 @@ body {
 @media (max-width: 768px) {
     .title {
         position: absolute;
-        top: -10px; /* Distanza dal bordo superiore */
+        top: -30px; /* Distanza dal bordo superiore */
         z-index: 10; /* Posiziona sopra gli altri elementi */
         left: 5px; /* Distanza dal bordo sinistro */
         text-align: left; /* Allinea il testo a sinistra */
         padding: 10px;
         margin-top: 0;
-
     }
 }
 
