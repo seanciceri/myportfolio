@@ -193,4 +193,24 @@ document.addEventListener("scroll", function () {
 });
 
 
+// INIZIALIZZAIONE MODELE PER Video
 
+// Funzione per aprire il modale e impostare il video giusto
+
+
+function openModal(videoSrc) {
+    let modal = document.getElementById("videoModal");
+    let video = document.getElementById("modalVideo");
+    
+    video.src = videoSrc; // Cambia il video nel modale
+    modal.style.display = "flex"; // Mostra il modale
+}
+
+function closeModal() {
+    let modal = document.getElementById("videoModal");
+    let video = document.getElementById("modalVideo");
+    
+    video.pause(); // Ferma il video
+    video.src = ""; // Rimuove il video per evitare problemi di riproduzione
+    modal.style.display = "none"; // Nasconde il modale
+}

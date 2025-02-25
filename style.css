@@ -862,3 +862,94 @@ h2 {
     transform: translateY(0);
     transition: transform 0.5s ease;
 }
+
+
+/* SEZIONE MODALE PER RIPRODUZIONE VIDEO */
+
+    /* Modale nascosto di default */
+.modal {
+    display: none; /* Lo nasconde */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenitore del video */
+.modal-content {
+    position: relative;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 80vw; /* Massima larghezza relativa */
+    max-height: 80vh; /* Massima altezza relativa */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modalVideo {
+    width: 100%;
+    height: auto;  /* Mantieni le proporzioni corrette */
+    max-width: 1000px; /* Puoi anche limitare la larghezza massima */
+    max-height: 80vh; /* Limita l'altezza al 80% della viewport */
+    object-fit: contain; /* Mantiene le proporzioni del video */
+    border-radius: 30px;
+}
+
+/* Pulsante per chiudere */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    font-size: 40px;
+    cursor: pointer;
+    color: white;
+    z-index: 1001;
+}
+
+/* Stile del pulsante Guarda */
+.watch-button {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    font-family: 'PixelFont' sans-serif;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    padding: 8px 8px;
+    background-color: #00080D;
+    color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.watch-button img {
+    width: 20px; /* Imposta la larghezza dell'icona */
+    height: auto; /* Mantieni le proporzioni dell'icona */
+    display: block; /* Elimina eventuali spazi vuoti intorno all'immagine */
+    margin: 0 auto; /* Centra l'icona orizzontalmente */
+}
+
+.watch-button:hover {
+    background-color: #033E8C;
+}
+
+.close:hover{
+    color: #00080D;
+}
+
+@media (max-width: 768px) {
+    .watch-button {
+        position: relative; /* Rimuove il posizionamento assoluto */
+        top: auto; /* Annulla l'offset top */
+        right: auto; /* Annulla l'offset right */
+        margin-top: 10px; /* Aggiungi uno spazio sopra il pulsante, se necessario */
+    }
+}

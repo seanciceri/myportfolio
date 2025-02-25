@@ -129,6 +129,9 @@
             suscipit consectetur dolor eos cum sunt iure deleniti sit, doloribus, 
             eius laudantium facilis, iste porro quidem minima soluta enim?</p>
         <video src="Video/5am_video.mp4" type="video/mp4" poster="copertine/copertina5AM.webp" controls></video>
+        <button class="watch-button" onclick="openModal('Video/5am_video.mp4')">
+          <img src="Icone/expandIcon.png" alt="Expand Video">
+        </button>
     </div>
 
     <!-- VIDEO NUMERO 2 -->
@@ -140,6 +143,9 @@
             suscipit consectetur dolor eos cum sunt iure deleniti sit, doloribus, 
             eius laudantium facilis, iste porro quidem minima soluta enim?</p>
         <video src="Video/Cyanide_video.mp4" type="video/mp4" poster="copertine/copertinaCyanide.webp" controls></video>
+        <button class="watch-button" onclick="openModal('Video/Cyanide_video.mp4')">
+          <img src="Icone/expandIcon.png" alt="Expand Video">
+        </button>
     </div>
 
 
@@ -151,6 +157,9 @@
             suscipit consectetur dolor eos cum sunt iure deleniti sit, doloribus, 
             eius laudantium facilis, iste porro quidem minima soluta enim?</p>
         <video src="Video/here_without_you_video.mp4" type="video/mp4" poster="copertine/copertinaSadStairs.webp" controls></video>
+        <button class="watch-button" onclick="openModal('Video/here_without_you_video.mp4')">
+          <img src="Icone/expandIcon.png" alt="Expand Video">
+        </button>
     </div>
 
     <!-- SEZIONE CHI SONO -->
@@ -186,9 +195,14 @@
   </div>
 
 
-        
+     <!-- MODALE VIDEO    -->
 
-
+      <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <video id="modalVideo" autoplay controls></video>
+        </div>
+    </div>
 
 
 
