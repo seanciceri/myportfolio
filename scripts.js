@@ -204,6 +204,8 @@ function openModal(videoSrc) {
     
     video.src = videoSrc; // Cambia il video nel modale
     modal.style.display = "flex"; // Mostra il modale
+    // Blocca lo scrolling quando apro il modale
+    document.body.classList.add("no-scroll");
 }
 
 function closeModal() {
@@ -213,4 +215,6 @@ function closeModal() {
     video.pause(); // Ferma il video
     video.src = ""; // Rimuove il video per evitare problemi di riproduzione
     modal.style.display = "none"; // Nasconde il modale
+    // Riattiva lo scrolling 
+    document.body.classList.remove("no-scroll");
 }

@@ -16,13 +16,15 @@
 }
 
 /* Imposta lo sfondo verde per l'intera pagina */
-body {
+html, body {
     overflow-x: hidden;
+    width: 100vw;
     transition: background-color 0.8s ease-in-out;
     background-color: #A0A4F2;
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'PixelFont', sans-serif;
+    scroll-behavior: smooth;
 }
 
 
@@ -248,6 +250,10 @@ body {
         margin: 6px 0;
     }
 
+    .navbar-toggler:hover{
+        transform: scale(1.05);
+    }
+
     /* X di chiusura */
     .close-icon {
         display: none; /* Nascondi la X inizialmente */
@@ -257,6 +263,9 @@ body {
         right: 8px;
         color: black;
         cursor: pointer;
+    }
+    .close-icon:hover{
+        transform: scale(1.2);
     }
 
     /* Mostra la X e nasconde l'hamburger quando il menu è aperto */
@@ -459,13 +468,14 @@ h2 {
 
 /* Stile per la descrizione */
 .box .description-text {
-    font-size: clamp(10px, 2vw, 18px); /* 🔥 Scalerà tra 10px e 18px */
+    font-size: clamp(10px, 2vw, 18px);
     font-family: 'PixelFont', sans-serif;
-    margin-left: 60px; /* Allinea la descrizione con il titolo */
+    margin-left: 60px; 
     margin-right: 3px;
-    margin-top: 5px; /* Distanza tra titolo e descrizione */
-    width: 90%; /* Utilizza tutta la larghezza disponibile */
-    word-wrap: break-word; /* Evita che il testo esca fuori dalla box */
+    margin-top: 5px;
+    max-width: 85%; /* Evita che il testo si allarghi troppo */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 
@@ -942,7 +952,15 @@ h2 {
 }
 
 .close:hover{
-    color: #00080D;
+    /* color: #00080D; */
+    transform: scale(1.2);
+    
+}
+
+/* Classe che blocca lo scroll */
+.no-scroll{
+    overflow: hidden;
+    height: 100vh;
 }
 
 @media (max-width: 768px) {
@@ -951,5 +969,8 @@ h2 {
         top: auto; /* Annulla l'offset top */
         right: auto; /* Annulla l'offset right */
         margin-top: 10px; /* Aggiungi uno spazio sopra il pulsante, se necessario */
+    }
+    html.no-scroll {
+        overflow: hidden; /* Blocca lo scroll */
     }
 }
