@@ -310,7 +310,7 @@ html, body {
 }
 
 .carousel{
-    background-color: rgba(48, 58, 242, 0.5); /* Blu con opacità per l'effetto vetro */
+    background-color: #023373; /* Blu con opacità per l'effetto vetro */
     border-radius: 30px;
     padding: 20px 0;
     margin-left: 90px;
@@ -960,7 +960,7 @@ h2 {
 /* Classe che blocca lo scroll */
 .no-scroll{
     overflow: hidden;
-    height: 100vh;
+    /* height: 100vh; questo mi dava problemi*/
 }
 
 @media (max-width: 768px) {
@@ -970,7 +970,7 @@ h2 {
         right: auto; /* Annulla l'offset right */
         margin-top: 10px; /* Aggiungi uno spazio sopra il pulsante, se necessario */
     }
-    html.no-scroll {
+    html .no-scroll {
         overflow: hidden; /* Blocca lo scroll */
     }
 }

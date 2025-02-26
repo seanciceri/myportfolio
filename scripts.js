@@ -101,36 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// NASCONDE LA BARRA SE IL VIDEO è IN RIPRODUZIONE, E MOSTRA LA BARRA SE PASSO SOPRA CON IL MOUSE
-
-document.addEventListener("DOMContentLoaded", function () {
-    const videos = document.querySelectorAll("video");
-
-    videos.forEach((video) => {
-        const progressContainer = video.nextElementSibling; // Prendiamo la barra di avanzamento
-        
-        video.addEventListener("play", function () {
-            progressContainer.style.opacity = "0"; // Nasconde la barra
-        });
-
-        video.addEventListener("pause", function () {
-            progressContainer.style.opacity = "1"; // Mostra la barra
-        });
-
-        // Mostra la barra quando il mouse passa sopra il video
-        video.addEventListener("mouseenter", function () {
-            progressContainer.style.opacity = "1";
-        });
-
-        // Se il video è in play, nasconde la barra quando il mouse esce
-        video.addEventListener("mouseleave", function () {
-            if (!video.paused) {
-                progressContainer.style.opacity = "0";
-            }
-        });
-    });
-});
-
 //PULSANTE HAMBURGHER ATTIVAZIONE
 
 
