@@ -54,7 +54,7 @@ $(document).ready(function(){
 // Effetto cambio colore body
 
 document.addEventListener("scroll", function () {
-    let sections = document.querySelectorAll(".video-container, .schede-container"); // Seleziona entrambe le sezioni
+    let sections = document.querySelectorAll(".video-container"); // Seleziona entrambe le sezioni
     let scrollPosition = window.scrollY + window.innerHeight / 2;
 
     let homepageColor = "#A0A4F2"; // Colore di default
