@@ -299,7 +299,8 @@ html, body {
 
 @media (max-width: 768px) {
     .title {
-        top: -30px; /* Distanza dal bordo superiore */
+        position: relative;
+        top: -50px; /* Distanza dal bordo superiore */
         z-index: 10; /* Posiziona sopra gli altri elementi */
         left: 5px; /* Distanza dal bordo sinistro */
         text-align: left; /* Allinea il testo a sinistra */
