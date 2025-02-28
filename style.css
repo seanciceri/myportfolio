@@ -283,7 +283,7 @@ html, body {
     font-family: 'PixelFont', sans-serif;
     font-size: clamp(30px, 5vw, 90px);
     font-weight: bold;
-    color: #12193b;
+    color: coral;
     text-align: center;
     z-index: 1001;
 }
