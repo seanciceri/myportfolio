@@ -555,7 +555,7 @@ h2 {
     position: relative;
     padding: 10px;
     font-family: 'PixelFont', sans-serif;
-    margin: 0 50px;
+    margin: 0 90px;
 }
 
 @media (max-width: 768px) {
@@ -617,6 +617,10 @@ h2 {
     background-color: #F2E4BB;
 }
 
+.video-quinto{
+    background-color: #006EC7;
+}
+
 .titolo1{
     color: #F2CB05;
 }
@@ -639,6 +643,10 @@ h2 {
     font-size: 40px;
 }
 
+.titolo5 {
+    color: #821F62;
+}
+
 
 
 .frase1{
@@ -651,6 +659,10 @@ h2 {
 
 .frase3{
     color: #110273;
+}
+
+.frase5{
+    color: #821F62;
 }
 
 /* .frase4: Testo centrato e posizionato sopra il video */
