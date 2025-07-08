@@ -621,6 +621,10 @@ h2 {
     background-color: #006EC7;
 }
 
+.video-sesto{
+    background-color: #F2DDFF;
+}
+
 .titolo1{
     color: #F2CB05;
 }
@@ -643,6 +647,10 @@ h2 {
     font-size: 40px;
 }
 
+.titolo6 {
+    color: #510980;
+}
+
 .titolo5 {
     color: #821F62;
 }
@@ -663,6 +671,10 @@ h2 {
 
 .frase5{
     color: #821F62;
+}
+
+.frase6{
+    color: #510980;
 }
 
 /* .frase4: Testo centrato e posizionato sopra il video */
